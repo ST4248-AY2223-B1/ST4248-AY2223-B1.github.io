@@ -25,5 +25,5 @@ Our project aims to contribute to the understanding of music lyrics and their ch
 ## Authors
 - Chong Wan Fei is a data scientist with expertise in natural language processing and machine learning.
 - Eldora Boo is a musicologist with extensive knowledge of music history and culture.
-- Salman Yusuf is a computer scientist with expertise in data cleaning and preprocessing. 
+- Salman Yusuf is a computer scientist with expertise in data cleaning and pre-processing. 
 - Teo Ming Jun is a statistician with expertise in exploratory data analysis and machine learning evaluation.
