@@ -1,0 +1,32 @@
+# Chapter 1
+## Part 1
+### Section 1
+```{r warning=FALSE}
+# Some code here
+```
+
+### Section 2
+```{r warning=FALSE}
+# Some code here
+```
+
+### Section 3
+```{r warning=FALSE}
+# Some code here
+```
+
+## Part 2
+### Section 1
+```{r warning=FALSE}
+# Some code here
+```
+
+### Section 2
+```{r warning=FALSE}
+# Some code here
+```
+
+### Section 3
+```{r warning=FALSE}
+# Some code here
+```
