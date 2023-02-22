@@ -7,7 +7,7 @@ documentclass: book
 output:
   bookdown::gitbook:
     config:
-      edit : null
+      edit: null
       download: ["pdf", "epub"]
       info: true
       sharing:
