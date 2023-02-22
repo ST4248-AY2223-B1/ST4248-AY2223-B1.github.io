@@ -2,13 +2,21 @@
 title: "ST4248 Project"
 author: "Chong Wan Fei, Eldora Boo, Salman Yusuf, Teo Ming Jun"
 site: bookdown::bookdown_site
+github-repo: st4248-ay2223-b1/st4248-ay2223-b1.github.io
 documentclass: book
 output:
   bookdown::gitbook:
     config:
-      download: ["pdf"]
-      info: false
+      edit : null
+      download: ["pdf", "epub"]
+      info: true
+      sharing:
+        twitter: false
+        facebook: false
+        linkedin: true
+        github: true
   bookdown::pdf_book: default
+  bookdown::epub_book: default
     
 ---
 
