@@ -1,0 +1,29 @@
+# Data Collection and Preprocessing
+## Data Collection
+
+Our dataset is obtained from Kaggle, where the user sourced the dataset from a research paper written by researchers in Brazil and published in Mendeley Data. Echo Nest and Lyrics Genius APIs were used to gather music data from Spotify’s database and lyrics of over 28,000 songs published between 1950 and 2019. As this dataset lacks the information on the popularity of the songs, we extracted the popularity data from another dataset that used the Spotify API which calculates popularity based on the total number of plays the songs has and its recency.
+
+## Data Description
+
+The dataset we are using after merging have a total of 17 variables including the target variable popularity, with a total of 13836 instances. The relevant variables are
+
+```{r echo=FALSE, warning = FALSE, results='asis'}
+library(knitr)
+variables <- c('POPULARITY', 'ACOUSTICNESS', 'DANCEABILITY', 'DURATION (MS)', 'ENERGY', 'INSTRUMENTALNESS', 'KEY', 'LIVELINESS', 'LOUDNESS (dB)', 'MODE', 'SPEECHINESS', 'TEMPO', 'VALENCE (float)')
+descriptions <- c("The popularity of a song calculated based on streams and its recency, ranging from a scale of 0 to 100.", "A confidence range should be from 0.0 to 1.0 on the scale of whether the track is acoustic or not.", "Suitability of a track, scaling from 0.0 to 1.0, possibly for dancing based on a combination of musical elements.", "Duration of the track must be very less i.e., in milliseconds.", "A perceptual measure of intensity and activity. ranging within 0.0 to 1.0.", "The measure of the vocal content in the track with a scale of 0 to 1.", "The estimated overall key of the track transformed to the format of a number. (E.g., C# D# transformed as 1, 2)", "Probability of the track being performed live in the presence of an audience.", "The overall loudness of a track must be in average decibels.", "Mode indicates the modality (major or minor) characteristic of a track depending on its key value.", "The more exclusively speeches-like the recording (e.g., talkshow, audiobook, poetry, etc.), the higher the attribute value. This ranges from 0.0 to 1.0.", "The overall estimated tempo of any track is always in beats per minute (BPM).", "Track positiveness is described from its valence measures (i.e., high or low) which ranges from 0 to 1.")
+df <- data.frame(variables, descriptions)
+kable(df)
+```
+
+
+
+
+
+
+## Preprocessing
+
+As the dataset was published by researchers, the data was pre-processed and clean - with no rows having missing values. However, we noticed certain songs having more than one popularity score. This was due to duplicate songs e.g. the same track from a single and an album being ranked independently - having different popularity scores as explained by Spotify. We took the average of the scores in those cases as we believe this gives a more accurate representation of the song’s popularity without introducing bias by favouring one release format.
+
+Features such as name, artist, genre are removed from the dataset as these are irrelevant features. We also normalised numerical variables in the dataset to help standardise the features and reduce computation time. However, variables such as explicit, release_date, key, are excluded as these variables are either categorical or binary variables. Variables that are already ranging from a scale of 0 to 1 are also excluded.
+
+The dataset was also split into training and test sets since this can help to prevent overfitting and give an estimate of the model performance.

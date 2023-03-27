@@ -1,0 +1,14 @@
+# Results and Discussions 
+## Conclusion
+
+In this report, we used different statistical learning models to predict a song’s popularity using musical characteristics of the song. We collected the data from Kaggle where the dataset was originally extracted using Spotify’s API and trained our models to predict the popularity of the song that was calculated by the number and recency of the streams. Comparing the performance of the different models on our test set, it can be seen that XGBoost without PCA performs the best with MSE of 0.017 and R-squared value of 0.52.
+
+## Limitations
+
+Although our dataset is limited to English songs on one streaming platform, namely Spotify, we believe that the model proposed can be extended for use with other streaming platforms as well as songs in other languages as well. Expanding the datasets available would help the models be able to better predict the popularity of songs. 
+
+In addition, if there is access to the demographics of the users on the streaming platforms, this might be able to improve the models’ performance in the prediction of song’s popularity on certain platforms.
+
+## Future Work
+
+Moreover, we can use more advanced techniques such as deep learning and ensemble models to improve the model's prediction accuracy. Additionally, it would be interesting to investigate how the popularity of a song changes over time and include time-series analysis in our models. Finally, it would be valuable to perform an interpretability analysis to understand which features contribute the most to a song's popularity and how they interact with each other.

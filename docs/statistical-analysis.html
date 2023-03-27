@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Statistical Analysis | ST4248 Project</title>
+  <meta name="description" content="4 Statistical Analysis | ST4248 Project" />
+  <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Statistical Analysis | ST4248 Project" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta name="github-repo" content="st4248-ay2223-b1/st4248-ay2223-b1.github.io" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Statistical Analysis | ST4248 Project" />
+  
+  
+  
+
+<meta name="author" content="Chong Wan Fei, Eldora Boo, Salman Yusuf, Teo Ming Jun" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="exploratory-data-analysis.html"/>
+<link rel="next" href="results-and-discussions.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Introduction</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#project-description"><i class="fa fa-check"></i><b>1.1</b> Project Description</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#authors"><i class="fa fa-check"></i><b>1.2</b> Authors</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#motivation"><i class="fa fa-check"></i><b>1.3</b> Motivation</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="data-collection-and-preprocessing.html"><a href="data-collection-and-preprocessing.html"><i class="fa fa-check"></i><b>2</b> Data Collection and Preprocessing</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="data-collection-and-preprocessing.html"><a href="data-collection-and-preprocessing.html#data-collection"><i class="fa fa-check"></i><b>2.1</b> Data Collection</a></li>
+<li class="chapter" data-level="2.2" data-path="data-collection-and-preprocessing.html"><a href="data-collection-and-preprocessing.html#data-description"><i class="fa fa-check"></i><b>2.2</b> Data Description</a></li>
+<li class="chapter" data-level="2.3" data-path="data-collection-and-preprocessing.html"><a href="data-collection-and-preprocessing.html#preprocessing"><i class="fa fa-check"></i><b>2.3</b> Preprocessing</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html"><i class="fa fa-check"></i><b>3</b> Exploratory Data Analysis</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#distribution-of-popularity"><i class="fa fa-check"></i><b>3.1</b> Distribution of Popularity</a></li>
+<li class="chapter" data-level="3.2" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#analysing-individual-variables"><i class="fa fa-check"></i><b>3.2</b> Analysing Individual Variables</a></li>
+<li class="chapter" data-level="3.3" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#correlation-between-variables"><i class="fa fa-check"></i><b>3.3</b> Correlation between Variables</a></li>
+<li class="chapter" data-level="3.4" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#principal-component-analysis"><i class="fa fa-check"></i><b>3.4</b> Principal Component Analysis</a></li>
+<li class="chapter" data-level="3.5" data-path="exploratory-data-analysis.html"><a href="exploratory-data-analysis.html#scree-plot-biplot"><i class="fa fa-check"></i><b>3.5</b> Scree Plot &amp; Biplot</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="statistical-analysis.html"><a href="statistical-analysis.html"><i class="fa fa-check"></i><b>4</b> Statistical Analysis</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#model-selection"><i class="fa fa-check"></i><b>4.1</b> Model Selection</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#xgboost"><i class="fa fa-check"></i><b>4.1.1</b> XGBoost</a></li>
+<li class="chapter" data-level="4.1.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#random-forest"><i class="fa fa-check"></i><b>4.1.2</b> Random Forest</a></li>
+<li class="chapter" data-level="4.1.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#support-vector-machine-svm"><i class="fa fa-check"></i><b>4.1.3</b> Support Vector Machine (SVM)</a></li>
+<li class="chapter" data-level="4.1.4" data-path="statistical-analysis.html"><a href="statistical-analysis.html#linear-regression"><i class="fa fa-check"></i><b>4.1.4</b> Linear Regression</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#model-evaluation"><i class="fa fa-check"></i><b>4.2</b> Model Evaluation</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="statistical-analysis.html"><a href="statistical-analysis.html#evaluation-metrics"><i class="fa fa-check"></i><b>4.2.1</b> Evaluation Metrics</a></li>
+<li class="chapter" data-level="4.2.2" data-path="statistical-analysis.html"><a href="statistical-analysis.html#results"><i class="fa fa-check"></i><b>4.2.2</b> Results</a></li>
+<li class="chapter" data-level="4.2.3" data-path="statistical-analysis.html"><a href="statistical-analysis.html#evaluation-of-model-performance"><i class="fa fa-check"></i><b>4.2.3</b> Evaluation of Model Performance</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="results-and-discussions.html"><a href="results-and-discussions.html"><i class="fa fa-check"></i><b>5</b> Results and Discussions</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="results-and-discussions.html"><a href="results-and-discussions.html#conclusion"><i class="fa fa-check"></i><b>5.1</b> Conclusion</a></li>
+<li class="chapter" data-level="5.2" data-path="results-and-discussions.html"><a href="results-and-discussions.html#limitations"><i class="fa fa-check"></i><b>5.2</b> Limitations</a></li>
+<li class="chapter" data-level="5.3" data-path="results-and-discussions.html"><a href="results-and-discussions.html#future-work"><i class="fa fa-check"></i><b>5.3</b> Future Work</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>6</b> References</a></li>
+<li class="chapter" data-level="7" data-path="appendix.html"><a href="appendix.html"><i class="fa fa-check"></i><b>7</b> Appendix</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="appendix.html"><a href="appendix.html#tuning-svm-hyperparameters-without-pca"><i class="fa fa-check"></i><b>7.1</b> Tuning SVM Hyperparameters: Without PCA</a></li>
+<li class="chapter" data-level="7.2" data-path="appendix.html"><a href="appendix.html#tuning-svm-hyperparameters-with-pca"><i class="fa fa-check"></i><b>7.2</b> Tuning SVM Hyperparameters: With PCA</a></li>
+<li class="chapter" data-level="7.3" data-path="appendix.html"><a href="appendix.html#tuning-xgboost-hyperparameters-without-pca"><i class="fa fa-check"></i><b>7.3</b> Tuning XGBoost Hyperparameters: Without PCA</a></li>
+<li class="chapter" data-level="7.4" data-path="appendix.html"><a href="appendix.html#tuning-xgboost-hyperparameters-with-pca"><i class="fa fa-check"></i><b>7.4</b> Tuning XGBoost Hyperparameters: With PCA</a></li>
+<li class="chapter" data-level="7.5" data-path="appendix.html"><a href="appendix.html#tuning-random-forest-hyperparameters-without-pca"><i class="fa fa-check"></i><b>7.5</b> Tuning Random Forest Hyperparameters: Without PCA</a></li>
+<li class="chapter" data-level="7.6" data-path="appendix.html"><a href="appendix.html#tuning-random-forest-hyperparameters-with-pca"><i class="fa fa-check"></i><b>7.6</b> Tuning Random Forest Hyperparameters: With PCA</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">ST4248 Project</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="statistical-analysis" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Statistical Analysis<a href="statistical-analysis.html#statistical-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>To investigate the relationship between the musical characteristics and popularity of a song, we decided to explore using the following predictive statistical learning models: XGBoost, Random Forest, Support Vector Machines.</p>
+<div id="model-selection" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Model Selection<a href="statistical-analysis.html#model-selection" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="xgboost" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> XGBoost<a href="statistical-analysis.html#xgboost" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>XGBoost is an approach that combines many decision tree models to create a single predictive model. Decision Trees are iteratively added to the model, where each new tree is trained to correct the errors of the previous trees.</p>
+<p>XGBoost was chosen as it will be able to handle non-linear relationships between the music characteristics and the popularity score as it learns by optimising decision trees, effectively capturing non-linear relationships. Since the features might not have a linear relationship, we believe XGBoost would be suitable. Furthermore, it has regularisation, helping to prevent problems like overfitting such that our model would be able to generalise and predict for new songs well. As we have many features in our dataset, XGBoost which is able to identify feature importance and hence do feature selection is suitable for our dataset. This aligns with the findings from a study by Tian H. and Wen J. (2019) where XGBoost outperformed Logistic Regression in the music recommendation prediction based on the song’s metadata.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="statistical-analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a>xgb_model <span class="ot">&lt;-</span> <span class="fu">xgboost</span>(<span class="at">data=</span><span class="fu">data.matrix</span>(train.X), <span class="at">label=</span>train.Y, <span class="at">nround=</span><span class="dv">25</span>)</span>
+<span id="cb1-2"><a href="statistical-analysis.html#cb1-2" aria-hidden="true" tabindex="-1"></a>xgb_model_predictions <span class="ot">&lt;-</span> <span class="fu">predict</span>(xgb_model, <span class="fu">data.matrix</span>(test.X))</span></code></pre></div>
+<p>We defined the search grid for the hyperparameters we wanted to tune. Some common hyperparameters for XGBoost include nrounds, max_depth, eta, min_child_weight, subsample, colsample_bytree, and gamma. Then we used train() from the caret package, to train the XGBoost model on the training data using different combinations of hyperparameters from the search grid.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="statistical-analysis.html#cb2-1" aria-hidden="true" tabindex="-1"></a>model <span class="ot">&lt;-</span> <span class="fu">train</span>(avg_popularity<span class="sc">~</span>., <span class="at">data=</span>train, <span class="at">method=</span><span class="st">&quot;xgbTree&quot;</span>, <span class="at">trControl=</span>train_control, <span class="at">tuneGrid=</span>gbmGrid)</span></code></pre></div>
+</div>
+<div id="random-forest" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Random Forest<a href="statistical-analysis.html#random-forest" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Random forest is an approach that combines multiple decision trees to create a single model. Each tree is trained on a random subset of the data, to reduce overfitting. To get a final prediction, the predictions of all the trees are aggregated.</p>
+<p>As mentioned previously, the relationship between the features and popularity might not be linear and there are quite a number of features in the dataset. So, Random Forest model’s ability to handle non-linear relationships and measure the importance of each feature like XGBoost makes it a suitable model. Furthermore, Random Forest is robust and is able to deal with missing values or noisy dataset. Despite our dataset being relatively clean, this would be useful for future implementations. This is also evident from research done by Pareek P. and Shankar P. (2022) on prediction of Spotify music tracks, where Random Forest outperformed Linear Support Vector Classifier and kNN for accuracy in prediction.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="statistical-analysis.html#cb3-1" aria-hidden="true" tabindex="-1"></a>rf_model <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(avg_popularity<span class="sc">~</span>., <span class="at">data=</span>train, <span class="at">mty=</span><span class="dv">13</span>, <span class="at">importance=</span><span class="cn">TRUE</span>)</span>
+<span id="cb3-2"><a href="statistical-analysis.html#cb3-2" aria-hidden="true" tabindex="-1"></a>rf_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(rf_model, test)</span></code></pre></div>
+<p>For Random Forest, the most common hyperparameter to tune is the number of variables to consider at each split (mtry). We created a grid that covers a range of possible values for mtry and use train() from the caret package, to train the Random Forest model on the training data using different combinations of hyperparameters from the search grid.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="statistical-analysis.html#cb4-1" aria-hidden="true" tabindex="-1"></a>rf_default <span class="ot">&lt;-</span> <span class="fu">train</span>(avg_popularity<span class="sc">~</span>., <span class="at">data=</span>reduced_train_data, <span class="at">method=</span><span class="st">&#39;rf&#39;</span>, <span class="at">tuneGrid=</span>tunegrid, <span class="at">trControl=</span>control)</span></code></pre></div>
+</div>
+<div id="support-vector-machine-svm" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Support Vector Machine (SVM)<a href="statistical-analysis.html#support-vector-machine-svm" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>SVM is a type of model that can be used for regression tasks. SVM tries to find the optimal boundary that predicts the target variable. It maps the data to a high-dimensional feature space and then finds the hyperplane that maximises the margin between the predictions. It can also handle nonlinear relationships through the use of kernel functions.</p>
+<p>Our dataset contains many features and the relationship between musical characteristics and the popularity might not be linear. Hence, SVM is an appropriate model since it can handle high-dimensional feature spaces and complex decision boundaries, through the use of kernels to transform data to be linearly separable.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="statistical-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a>svm_model <span class="ot">&lt;-</span> <span class="fu">svm</span>(avg_popularity<span class="sc">~</span>., <span class="at">data=</span>train, <span class="at">kernel=</span><span class="st">&quot;linear&quot;</span>, <span class="at">scale=</span><span class="cn">FALSE</span>)</span>
+<span id="cb5-2"><a href="statistical-analysis.html#cb5-2" aria-hidden="true" tabindex="-1"></a>pred_test <span class="ot">&lt;-</span> <span class="fu">predict</span>(svm_model, test)</span></code></pre></div>
+<p>To perform hyperparameter tuning for the SVM model, we will use the tune() function from the e1071 package to find the best cost and sigma parameters for the radial basis function (RBF) kernel. We will perform a grid search over a range of values for these two parameters to find the best combination.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="statistical-analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a>tuned_svm <span class="ot">&lt;-</span> <span class="fu">train</span>(avg_popularity<span class="sc">~</span>., <span class="at">data=</span>train, <span class="at">method=</span><span class="st">&quot;svmRadial&quot;</span>, <span class="at">trControl=</span>train_control, <span class="at">preProcess=</span><span class="cn">NULL</span>, <span class="at">tuneGrid=</span>tuning_grid)</span></code></pre></div>
+</div>
+<div id="linear-regression" class="section level3 hasAnchor" number="4.1.4">
+<h3><span class="header-section-number">4.1.4</span> Linear Regression<a href="statistical-analysis.html#linear-regression" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Linear regression is an approach used to model the relationship between a dependent variable and independent variables by finding the best linear equation that describes the relationship. It can be used for prediction as well as understanding the relationship between variables.</p>
+<p>We chose the linear regression model as this is a simple model that is easily interpretable, describing the relationship between the musical characteristics and popularity in a simple equation for prediction. In addition, our dataset contains both categorical and continuous variables which linear regression can handle and incorporate. Hence, we believe this is a suitable model for our dataset.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="statistical-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a>lasso <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="fu">as.matrix</span>(X_train), <span class="fu">as.numeric</span>(y_train), <span class="at">alpha=</span><span class="dv">1</span>)</span>
+<span id="cb7-2"><a href="statistical-analysis.html#cb7-2" aria-hidden="true" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(lasso, <span class="fu">as.matrix</span>(X_test))</span>
+<span id="cb7-3"><a href="statistical-analysis.html#cb7-3" aria-hidden="true" tabindex="-1"></a>ridge <span class="ot">&lt;-</span> <span class="fu">cv.glmnet</span>(<span class="fu">as.matrix</span>(X_train), <span class="fu">as.numeric</span>(y_train), <span class="at">alpha=</span><span class="dv">0</span>)</span>
+<span id="cb7-4"><a href="statistical-analysis.html#cb7-4" aria-hidden="true" tabindex="-1"></a>y_pred <span class="ot">&lt;-</span> <span class="fu">predict</span>(ridge, <span class="fu">as.matrix</span>(X_test))</span></code></pre></div>
+</div>
+</div>
+<div id="model-evaluation" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Model Evaluation<a href="statistical-analysis.html#model-evaluation" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="evaluation-metrics" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Evaluation Metrics<a href="statistical-analysis.html#evaluation-metrics" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>As the goal of our project is to predict the popularity score, which is a continuous variable, based on the features, this is a regression problem. Hence, it is most appropriate to use Mean Squared Error (MSE) as a metric to evaluate the performance of the model for the prediction of popularity scores. MSE is a measure of the average difference between the actual value and predicted value. In addition, we decided to use metrics such as R-squared to get a better understanding of the suitability of the model for the dataset. R-squared value explains the variance explained by the model.</p>
+</div>
+<div id="results" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Results<a href="statistical-analysis.html#results" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Model</th>
+<th align="left">RMSE_MSE</th>
+<th align="left">R_Squared</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">XGBoost without PCA</td>
+<td align="left"># MSE = 0.017 # RMSE = 0.13</td>
+<td align="left"># R-squared = 0.52</td>
+</tr>
+<tr class="even">
+<td align="left">XGBoost with PCA</td>
+<td align="left"># MSE = 0.018 # RMSE = 0.13</td>
+<td align="left"># R-squared = 0.49</td>
+</tr>
+<tr class="odd">
+<td align="left">Random Forest without PCA</td>
+<td align="left"># MSE = 0.017 # RMSE = 0.131</td>
+<td align="left"># R-squared = 0.52</td>
+</tr>
+<tr class="even">
+<td align="left">Random Forest with PCA</td>
+<td align="left"># MSE = 0.022 # RMSE = 0.149</td>
+<td align="left"># R-squared = 0.37</td>
+</tr>
+<tr class="odd">
+<td align="left">SVM without PCA</td>
+<td align="left"># MSE = 3.28 # RMSE = 1.81</td>
+<td align="left"># R-squared = 0.24</td>
+</tr>
+<tr class="even">
+<td align="left">SVM with PCA</td>
+<td align="left"># MSE = 0.02 # RMSE = 0.15</td>
+<td align="left"># R-squared = 0.34</td>
+</tr>
+<tr class="odd">
+<td align="left">LASSO Regression without PCA</td>
+<td align="left"># MSE = 0.02 # RMSE = 0.14</td>
+<td align="left"># R-squared = 0.47</td>
+</tr>
+<tr class="even">
+<td align="left">LASSO Regression with PCA</td>
+<td align="left"># MSE = 0.024 # RMSE = 0.15</td>
+<td align="left"># R-squared = 0.33</td>
+</tr>
+<tr class="odd">
+<td align="left">Ridge Regression without PCA</td>
+<td align="left"># MSE = 0.02 # RMSE: 0.14</td>
+<td align="left"># R-squared = 0.47</td>
+</tr>
+<tr class="even">
+<td align="left">Ridge Regression with PCA</td>
+<td align="left"># MSE = 0.02 # RMSE = 0.16</td>
+<td align="left"># R-squared = 0.32</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="evaluation-of-model-performance" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Evaluation of Model Performance<a href="statistical-analysis.html#evaluation-of-model-performance" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Based on the evaluation metrics, it can be seen that XGBoost without PCA and Random Forest without PCA perform similarly well with an MSE of 0.017 and an R-squared value of 0.52. LASSO Regression without PCA and Ridge Regression without PCA also perform relatively well with an MSE of 0.02 and an R-squared value of 0.47. SVM without PCA performs the worst with an MSE of 3.28 and an R-squared value of 0.24.</p>
+<p>XGBoost and Random Forest models are ensemble methods and are good at handling complex relationships and interactions among features. They can also handle missing data and outliers. However, these models can be prone to overfitting if the hyperparameters are not tuned properly. LASSO and Ridge Regression models are good at handling multicollinearity among features and can perform feature selection by shrinking the coefficients of less important features to zero. SVM models can handle non-linear relationships among features, but they can be sensitive to the choice of kernel function and can be computationally expensive for large datasets.</p>
+<p>PCA can be used to reduce the dimensionality of the feature space by combining correlated features into new features called principal components. This can help in reducing overfitting and increasing the model’s generalizability. However, in some cases, PCA may not improve the model’s performance, as it may discard some useful information by combining features. This can be seen in the case of Random Forest with PCA and LASSO Regression with PCA, where the models perform worse than their counterparts without PCA.</p>
+<p>In conclusion, based on the evaluation metrics and considering the strengths and weaknesses of each model, XGBoost without PCA and Random Forest without PCA can be considered the best models for predicting song popularity using musical characteristics. However, further tuning of hyperparameters and feature selection methods can be used to improve the performance of these models even further.</p>
+<p>The LASSO Regression models have similar results for MSE and RMSE regardless of applying PCA. This could be due to LASSO regression models being able to do feature selection to identify relevant features, hence the reduction of features using PCA does not have any significance. The model without PCA is a better fit than the one with PCA - scoring 0.47 and 0.33 respectively - might be due to the penalisation of less important features, causing the model to be more robust to overfitting. Thus, it does better for unseen data.</p>
+<p>The same applies to the Ridge Regression models which have similar results to LASSO Regression models.</p>
+<p>Overall, one interesting finding was that with PCA, our models had seemed to perform worse than without. Our group had hypothesized that this could be due to the VIF for the factors that are collinearly related being low, hence dimension reduction not faring as well.</p>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="exploratory-data-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="results-and-discussions.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": false,
+"linkedin": true,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": null,
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["_main.pdf", "_main.epub"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"info": true
+});
+});
+</script>
+
+</body>
+
+</html>

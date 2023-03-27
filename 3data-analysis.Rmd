@@ -1,0 +1,35 @@
+# Exploratory Data Analysis
+
+## Distribution of Popularity
+
+With popularity set as the response variable, we first did an analysis of the distribution of songs popularity using a density histogram (Fig.1). We discovered 2 findings. Firstly, there were many songs with 0 popularity, but we decided to leave this data in as songs on Spotify. Secondly, the majority of the songs have a popularity score of around 27.
+
+## Analysing Individual Variables
+
+Our group then subset the data to a size of 500 and analysed the individual variables using scatterplots to determine each feature's relationship to the response variable.
+
+Based on the scatterplots (Fig.2), no one feature has a particularly strong relationship with the response variable popularity. Next, we computed the correlation matrix and the plot below to find out if any collinearity existed within our variables.
+
+## Correlation between Variables
+
+Based on the correlation plot (Fig. 3), we observe a strong positive correlation between loudness and energy, and a strong negative correlation between energy and acousticness. As high correlations between variables might cause multicollinearity issues in model training, model coefficients and predictions might be unstable and unreliable. To correct this, we considered either removing the highly correlated variable ‘energy’ or using Principal Component Analysis(PCA) to reduce the dimensions.
+
+## Principal Component Analysis
+
+We will first test the effectiveness of PCA in potentially reducing the multicollinearity issues caused by the strong correlation of energy with loudness and acousticness. 
+
+Based on the results above, our group will keep the first 4 principal components as they have a combined PVE of 0.7037, explaining 70.37% of the variation in the data.
+
+From the figure above, our group analysed the contribution of each original variable to each principal component, with higher loadings indicating a stronger relationship. The loading matrix can help identify which variables are most important in explaining the variation in the data, and how they are related to each other.
+
+- 1st Principal Component: Mainly influenced by popularity, loudness, energy, and danceability, with positive loadings for these variables. This suggests that these attributes are strongly correlated with each other, and that songs that are popular and have high energy and danceability tend to be loud.
+
+- 2nd Principal Component: Mainly influenced by duration_ms and instrumentalness, with positive loadings for these variables. This suggests that songs with longer duration and higher instrumentalness tend to be grouped together.
+
+- 3rd Principal Component: Mainly influenced by explicitness, speechiness, and valence, with positive loadings for explicitness and speechiness, and negative loadings for valence. This suggests that songs with explicit language and high levels of speech are associated with lower valence (i.e. less positive emotional expression).
+
+- 4th Principal Component: Mainly influenced by liveness and key, with positive loadings for liveness and key. This suggests that songs in certain keys and with high levels of audience participation (i.e. liveness) tend to be grouped together.
+
+## Scree Plot & Biplot
+
+Further analysis done from the scree plot (Fig.6) agrees that 4 principal components best explain the variance in the data, and that energy has a strong positive correlation with loudness, as well as a strong negative correlation with acousticness(Fig.7).

@@ -1,0 +1,6 @@
+# References
+
+Tian, H., Cai, H., Wen, J., Li, S., & Li, Y. (2019). A Music Recommendation System Based on logistic regression and eXtreme Gradient Boosting. 2019 International Joint Conference on Neural Networks (IJCNN). doi:10.1109/ijcnn.2019.8852094
+
+Pareek, P., Shankar, P., Pathak, M. P., & Sakariya, M. N. (2022). Predicting music popularity using machine learning algorithm and music metrics available in spotify. J. Dev. Econ. Manag. Res. Stud. JDMS, 9, 10-19.
+Web API reference: Spotify for developers. (n.d.). Retrieved March 26, 2023, from https://developer.spotify.com/documentation/web-api/reference/#/

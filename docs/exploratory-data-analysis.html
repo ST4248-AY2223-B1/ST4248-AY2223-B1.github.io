@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Page not found | ST4248 Project</title>
-  <meta name="description" content="Page not found | ST4248 Project" />
+  <title>3 Exploratory Data Analysis | ST4248 Project</title>
+  <meta name="description" content="3 Exploratory Data Analysis | ST4248 Project" />
   <meta name="generator" content="bookdown 0.32 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Page not found | ST4248 Project" />
+  <meta property="og:title" content="3 Exploratory Data Analysis | ST4248 Project" />
   <meta property="og:type" content="book" />
   
   
   <meta name="github-repo" content="st4248-ay2223-b1/st4248-ay2223-b1.github.io" />
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Page not found | ST4248 Project" />
+  <meta name="twitter:title" content="3 Exploratory Data Analysis | ST4248 Project" />
   
   
   
@@ -29,8 +29,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-
-
+<link rel="prev" href="data-collection-and-preprocessing.html"/>
+<link rel="next" href="statistical-analysis.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -200,19 +200,46 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="page-not-found" class="section level1">
-<h1>Page not found</h1>
-<p>The page you requested cannot be found (perhaps it was moved or renamed).</p>
-<p>You may want to try searching to find the page's new location, or use
-the table of contents to find the page you are looking for.</p>
+<div id="exploratory-data-analysis" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">3</span> Exploratory Data Analysis<a href="exploratory-data-analysis.html#exploratory-data-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="distribution-of-popularity" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> Distribution of Popularity<a href="exploratory-data-analysis.html#distribution-of-popularity" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>With popularity set as the response variable, we first did an analysis of the distribution of songs popularity using a density histogram (Fig.1). We discovered 2 findings. Firstly, there were many songs with 0 popularity, but we decided to leave this data in as songs on Spotify. Secondly, the majority of the songs have a popularity score of around 27.</p>
+</div>
+<div id="analysing-individual-variables" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> Analysing Individual Variables<a href="exploratory-data-analysis.html#analysing-individual-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Our group then subset the data to a size of 500 and analysed the individual variables using scatterplots to determine each feature’s relationship to the response variable.</p>
+<p>Based on the scatterplots (Fig.2), no one feature has a particularly strong relationship with the response variable popularity. Next, we computed the correlation matrix and the plot below to find out if any collinearity existed within our variables.</p>
+</div>
+<div id="correlation-between-variables" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> Correlation between Variables<a href="exploratory-data-analysis.html#correlation-between-variables" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Based on the correlation plot (Fig. 3), we observe a strong positive correlation between loudness and energy, and a strong negative correlation between energy and acousticness. As high correlations between variables might cause multicollinearity issues in model training, model coefficients and predictions might be unstable and unreliable. To correct this, we considered either removing the highly correlated variable ‘energy’ or using Principal Component Analysis(PCA) to reduce the dimensions.</p>
+</div>
+<div id="principal-component-analysis" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> Principal Component Analysis<a href="exploratory-data-analysis.html#principal-component-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We will first test the effectiveness of PCA in potentially reducing the multicollinearity issues caused by the strong correlation of energy with loudness and acousticness.</p>
+<p>Based on the results above, our group will keep the first 4 principal components as they have a combined PVE of 0.7037, explaining 70.37% of the variation in the data.</p>
+<p>From the figure above, our group analysed the contribution of each original variable to each principal component, with higher loadings indicating a stronger relationship. The loading matrix can help identify which variables are most important in explaining the variation in the data, and how they are related to each other.</p>
+<ul>
+<li><p>1st Principal Component: Mainly influenced by popularity, loudness, energy, and danceability, with positive loadings for these variables. This suggests that these attributes are strongly correlated with each other, and that songs that are popular and have high energy and danceability tend to be loud.</p></li>
+<li><p>2nd Principal Component: Mainly influenced by duration_ms and instrumentalness, with positive loadings for these variables. This suggests that songs with longer duration and higher instrumentalness tend to be grouped together.</p></li>
+<li><p>3rd Principal Component: Mainly influenced by explicitness, speechiness, and valence, with positive loadings for explicitness and speechiness, and negative loadings for valence. This suggests that songs with explicit language and high levels of speech are associated with lower valence (i.e. less positive emotional expression).</p></li>
+<li><p>4th Principal Component: Mainly influenced by liveness and key, with positive loadings for liveness and key. This suggests that songs in certain keys and with high levels of audience participation (i.e. liveness) tend to be grouped together.</p></li>
+</ul>
+</div>
+<div id="scree-plot-biplot" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> Scree Plot &amp; Biplot<a href="exploratory-data-analysis.html#scree-plot-biplot" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Further analysis done from the scree plot (Fig.6) agrees that 4 principal components best explain the variance in the data, and that energy has a strong positive correlation with loudness, as well as a strong negative correlation with acousticness(Fig.7).</p>
+
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-
-
+<a href="data-collection-and-preprocessing.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="statistical-analysis.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

@@ -22,20 +22,18 @@ output:
 
 # Introduction
 
-Project Title: Exploring Themes and Emotions Expressed in Music Lyrics Across Different Genres & Time Periods
+Music Popularity Prediction Using Machine Learning Techniques
 
 ## Project Description
 
-Music lyrics provide a valuable source of information for understanding the cultural and social aspects of music production and consumption. In this project, we aim to explore the relationship between music lyrics and their characteristics using natural language processing techniques. Specifically, we hypothesize that there are significant differences in the themes, emotions, and language used in music lyrics across different genres and time periods.
-
-To achieve this goal, we will begin by exploring a music lyrics dataset provided on Kaggle, which includes lyrics from 1950 to 2019. We will perform exploratory analysis and data cleaning to prepare the data for natural language processing analysis. We will then use natural language processing techniques, such as sentiment analysis and topic modeling, to extract meaningful insights from the lyrics.
-
-In addition, we will explore the relationship between the lyrics and music metadata provided in the dataset, such as tempo, loudness, and danceability, to understand how the musical characteristics of a song relate to its lyrical content. Finally, we will evaluate the performance of various machine learning algorithms in predicting the genre of a song based on its lyrics, to assess the potential of natural language processing techniques in music genre classification.
-
-Our project aims to contribute to the understanding of music lyrics and their characteristics, and to showcase the potential of natural language processing techniques in music analysis. We believe that the results of this project can be useful for various applications, such as music recommendation and marketing.
+In this project, we aim to predict the popularity of a song based on its features using various machine learning models, such as Random Forest, Linear Regression, Support Vector Machines (SVM), and XGBoost. We will preprocess the data, perform Principal Component Analysis (PCA) for dimensionality reduction, and apply hyperparameter tuning to find the optimal parameters for each model. The performance of each model will be evaluated using metrics such as Mean Squared Error (MSE), Root Mean Squared Error (RMSE), R-squared, and accuracy. By comparing the results of the different models, we will determine the most effective approach for predicting a song's popularity. This analysis can be used to better understand the factors that contribute to a song's popularity and could potentially be employed by music producers, record labels, or streaming platforms to predict the success of new releases.
 
 ## Authors
-- Chong Wan Fei is a data scientist with expertise in natural language processing and machine learning.
-- Eldora Boo is a musicologist with extensive knowledge of music history and culture.
-- Salman Yusuf is a computer scientist with expertise in data cleaning and pre-processing. 
-- Teo Ming Jun is a statistician with expertise in exploratory data analysis and machine learning evaluation.
+- Chong Wan Fei
+- Eldora Boo
+- Salman Yusuf 
+- Teo Ming Jun
+
+## Motivation
+
+In the highly competitive music industry, understanding what makes a song or artist valuable is crucial for marketing strategies, album releases, and aligning efforts with public interest. Spotify, one of the largest streaming services, reaches over 191 million active users and publishes several charts, including a daily "Top 50" ranked by the number of streams. For artists, knowing when their work will become popular on the platform is essential for boosting marketing efforts and steering efforts towards more promising cases. Therefore, predicting a song's popularity using musical characteristics can be of great interest to artists and the music industry.

@@ -1,0 +1,101 @@
+# Statistical Analysis
+
+To investigate the relationship between the musical characteristics and popularity of a song, we decided to explore using the following predictive statistical learning models: XGBoost, Random Forest, Support Vector Machines.
+
+## Model Selection
+
+### XGBoost
+
+XGBoost is an approach that combines many decision tree models to create a single predictive model. Decision Trees are iteratively added to the model, where each new tree is trained to correct the errors of the previous trees. 
+
+XGBoost was chosen as it will be able to handle non-linear relationships between the music characteristics and the popularity score as it learns by optimising decision trees, effectively capturing non-linear relationships. Since the features might not have a linear relationship, we believe XGBoost would be suitable. Furthermore, it has regularisation, helping to prevent problems like overfitting such that our model would be able to generalise and predict for new songs well. As we have many features in our dataset, XGBoost which is able to identify feature importance and hence do feature selection is suitable for our dataset. This aligns with the findings from a study by Tian H. and Wen J. (2019) where XGBoost outperformed Logistic Regression in the music recommendation prediction based on the song’s metadata.
+
+```{r eval=FALSE}
+xgb_model <- xgboost(data=data.matrix(train.X), label=train.Y, nround=25)
+xgb_model_predictions <- predict(xgb_model, data.matrix(test.X))
+```
+
+We defined the search grid for the hyperparameters we wanted to tune. Some common hyperparameters for XGBoost include nrounds, max_depth, eta, min_child_weight, subsample, colsample_bytree, and gamma. Then we used train() from the caret package, to train the XGBoost model on the training data using different combinations of hyperparameters from the search grid.
+
+```{r eval=FALSE}
+model <- train(avg_popularity~., data=train, method="xgbTree", trControl=train_control, tuneGrid=gbmGrid)
+```
+
+### Random Forest
+
+Random forest is an approach that combines multiple decision trees to create a single model. Each tree is trained on a random subset of the data, to reduce overfitting. To get a final prediction, the predictions of all the trees are aggregated. 
+
+As mentioned previously, the relationship between the features and popularity might not be linear and there are quite a number of features in the dataset. So, Random Forest model’s ability to handle non-linear relationships and measure the importance of each feature like XGBoost makes it a suitable model. Furthermore, Random Forest is robust and is able to deal with missing values or noisy dataset. Despite our dataset being relatively clean, this would be useful for future implementations. This is also evident from research done by Pareek P. and Shankar P. (2022) on prediction of Spotify music tracks, where Random Forest outperformed Linear Support Vector Classifier and kNN for accuracy in prediction.
+
+```{r eval=FALSE}
+rf_model <- randomForest(avg_popularity~., data=train, mty=13, importance=TRUE)
+rf_pred <- predict(rf_model, test)
+```
+
+For Random Forest, the most common hyperparameter to tune is the number of variables to consider at each split (mtry). We created a grid that covers a range of possible values for mtry and use train() from the caret package, to train the Random Forest model on the training data using different combinations of hyperparameters from the search grid.
+
+```{r eval=FALSE}
+rf_default <- train(avg_popularity~., data=reduced_train_data, method='rf', tuneGrid=tunegrid, trControl=control)
+```
+
+### Support Vector Machine (SVM)
+
+SVM is a type of model that can be used for regression tasks. SVM tries to find the optimal boundary that predicts the target variable. It maps the data to a high-dimensional feature space and then finds the hyperplane that maximises the margin between the predictions. It can also handle nonlinear relationships through the use of kernel functions.
+
+Our dataset contains many features and the relationship between musical characteristics and the popularity might not be linear. Hence, SVM is an appropriate model since it can handle high-dimensional feature spaces and complex decision boundaries, through the use of kernels to transform data to be linearly separable.
+
+```{r eval=FALSE}
+svm_model <- svm(avg_popularity~., data=train, kernel="linear", scale=FALSE)
+pred_test <- predict(svm_model, test)
+```
+
+To perform hyperparameter tuning for the SVM model, we will use the tune() function from the e1071 package to find the best cost and sigma parameters for the radial basis function (RBF) kernel. We will perform a grid search over a range of values for these two parameters to find the best combination.
+
+```{r eval=FALSE}
+tuned_svm <- train(avg_popularity~., data=train, method="svmRadial", trControl=train_control, preProcess=NULL, tuneGrid=tuning_grid)
+```
+
+### Linear Regression
+
+Linear regression is an approach used to model the relationship between a dependent variable and independent variables by finding the best linear equation that describes the relationship. It can be used for prediction as well as understanding the relationship between variables.
+
+We chose the linear regression model as this is a simple model that is easily interpretable, describing the relationship between the musical characteristics and popularity in a simple equation for prediction. In addition, our dataset contains both categorical and continuous variables which linear regression can handle and incorporate. Hence, we believe this is a suitable model for our dataset.
+
+```{r eval=FALSE}
+lasso <- cv.glmnet(as.matrix(X_train), as.numeric(y_train), alpha=1)
+y_pred <- predict(lasso, as.matrix(X_test))
+ridge <- cv.glmnet(as.matrix(X_train), as.numeric(y_train), alpha=0)
+y_pred <- predict(ridge, as.matrix(X_test))
+```
+
+## Model Evaluation
+### Evaluation Metrics
+
+As the goal of our project is to predict the popularity score, which is a continuous variable, based on the features, this is a regression problem. Hence, it is most appropriate to use Mean Squared Error (MSE) as a metric to evaluate the performance of the model for the prediction of popularity scores. MSE is a measure of the average difference between the actual value and predicted value. In addition, we decided to use metrics such as R-squared to get a better understanding of the suitability of the model for the dataset. R-squared value explains the variance explained by the model. 
+
+### Results
+
+```{r echo=FALSE, warning = FALSE, results='asis'}
+library(knitr)
+Model <- c('XGBoost without PCA', 'XGBoost with PCA', 'Random Forest without PCA', 'Random Forest with PCA', 'SVM without PCA', 'SVM with PCA', 'LASSO Regression without PCA', 'LASSO Regression with PCA', 'Ridge Regression without PCA', 'Ridge Regression with PCA')
+RMSE_MSE <- c('# MSE = 0.017 # RMSE = 0.13', '# MSE = 0.018 # RMSE = 0.13', '# MSE = 0.017 # RMSE = 0.131', '# MSE = 0.022 # RMSE = 0.149', '# MSE = 3.28 # RMSE = 1.81', '# MSE = 0.02 # RMSE = 0.15', '# MSE = 0.02 # RMSE = 0.14', '# MSE = 0.024 # RMSE = 0.15', '# MSE = 0.02 # RMSE: 0.14', '# MSE = 0.02 # RMSE = 0.16')
+R_Squared <- c('# R-squared = 0.52', '# R-squared = 0.49', '# R-squared = 0.52', '# R-squared = 0.37', '# R-squared = 0.24', '# R-squared = 0.34', '# R-squared = 0.47', '# R-squared = 0.33', '# R-squared = 0.47', '# R-squared = 0.32')
+df <- data.frame(Model, RMSE_MSE, R_Squared)
+kable(df)
+```
+
+### Evaluation of Model Performance
+
+Based on the evaluation metrics, it can be seen that XGBoost without PCA and Random Forest without PCA perform similarly well with an MSE of 0.017 and an R-squared value of 0.52. LASSO Regression without PCA and Ridge Regression without PCA also perform relatively well with an MSE of 0.02 and an R-squared value of 0.47. SVM without PCA performs the worst with an MSE of 3.28 and an R-squared value of 0.24.
+
+XGBoost and Random Forest models are ensemble methods and are good at handling complex relationships and interactions among features. They can also handle missing data and outliers. However, these models can be prone to overfitting if the hyperparameters are not tuned properly. LASSO and Ridge Regression models are good at handling multicollinearity among features and can perform feature selection by shrinking the coefficients of less important features to zero. SVM models can handle non-linear relationships among features, but they can be sensitive to the choice of kernel function and can be computationally expensive for large datasets.
+
+PCA can be used to reduce the dimensionality of the feature space by combining correlated features into new features called principal components. This can help in reducing overfitting and increasing the model's generalizability. However, in some cases, PCA may not improve the model's performance, as it may discard some useful information by combining features. This can be seen in the case of Random Forest with PCA and LASSO Regression with PCA, where the models perform worse than their counterparts without PCA.
+
+In conclusion, based on the evaluation metrics and considering the strengths and weaknesses of each model, XGBoost without PCA and Random Forest without PCA can be considered the best models for predicting song popularity using musical characteristics. However, further tuning of hyperparameters and feature selection methods can be used to improve the performance of these models even further.
+
+The LASSO Regression models have similar results for MSE and RMSE regardless of applying PCA. This could be due to LASSO regression models being able to do feature selection to identify relevant features, hence the reduction of features using PCA does not have any significance. The model without PCA is a better fit than the one with PCA - scoring 0.47 and 0.33 respectively - might be due to the penalisation of less important features, causing the model to be more robust to overfitting. Thus, it does better for unseen data. 
+
+The same applies to the Ridge Regression models which have similar results to LASSO Regression models. 
+
+Overall, one interesting finding was that with PCA, our models had seemed to perform worse than without. Our group had hypothesized that this could be due to the VIF for the factors that are collinearly related being low, hence dimension reduction not faring as well.
