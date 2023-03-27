@@ -1,7 +1,37 @@
 # Appendix
-## Tuning SVM Hyperparameters: Without PCA
-## Tuning SVM Hyperparameters: With PCA
-## Tuning XGBoost Hyperparameters: Without PCA
-## Tuning XGBoost Hyperparameters: With PCA
-## Tuning Random Forest Hyperparameters: Without PCA
-## Tuning Random Forest Hyperparameters: With PCA
+## Tuning SVM Hyperparameters
+### Without PCA
+```
+Support Vector Machines with Radial Basis Function Kernel
+
+9685 samples
+   4 predictor
+  
+No pre-processing
+Resampling: Cross-Validated (10 fold)
+Summary of sample sizes: 8717, 8715, 8718, 8717, 8715, 8716, ...
+Resampling results across tuning parameters:
+
+# Train the SVM model with the best parameters
+  C     sigma  RMSE       Rsquared   MAE
+   0.1  0.5    0.1489409  0.3791848  0.1152221
+   0.1  1.0    0.1496952  0.3715801  0.1160810
+   0.1  2.0    0.1518043  0.3528460  0.1183108
+   1.0  0.5    0.1492998  0.3810286  0.1149792
+   1.0  1.0    0.1508168  0.3700282  0.1161860
+   1.0  2.0    0.1532086  0.3523641  0.1184146
+  10.0  0.5    0.1515176  0.3683280  0.1165050
+  10.0  1.0    0.1563312  0.3389117  0.1205078
+  10.0  2.0    0.1634327  0.2997668  0.1269389
+   
+RMSE was used to select the optimal model using the smallest value.
+The final values used for the model were sigma = 0.5 and C = 0.1.
+```
+### With PCA
+## Tuning XGBoost Hyperparameters
+### Without PCA
+### With PCA
+## Tuning Random Forest Hyperparameters
+### Without PCA
+### With PCA
+
